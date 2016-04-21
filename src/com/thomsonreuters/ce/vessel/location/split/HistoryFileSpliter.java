@@ -22,8 +22,8 @@ import au.com.bytecode.opencsv.CSVParser;
 
 public class HistoryFileSpliter {
 
-    private static String sourcefolder="D:\\mywork\\development\\VTdata_analysis\\20150130\\Ventspils\\raw";
-    private static String destfolder="D:\\mywork\\development\\VTdata_analysis\\20150130\\Ventspils\\split"
+    private static String sourcefolder="D:\\mywork\\development\\VTdata_analysis\\20160324\\raw";
+    private static String destfolder="D:\\mywork\\development\\VTdata_analysis\\20160324\\split"
     	+ "";
 
     public static void main(String[] args) {
@@ -59,13 +59,16 @@ public class HistoryFileSpliter {
 		while(ZippedFiles.hasMoreElements())
 		{
 		    ZipEntry entry = (ZipEntry) ZippedFiles.nextElement();
-		    if (entry.getName().equals("export.csv"))
+		    //if (entry.getName().equals("export.csv"))
+		    if (true)
 		    {			
 			
 			InputStream IS = ZippedFile.getInputStream(entry);
 			BufferedReader BR= new BufferedReader(new InputStreamReader(IS));
 			
 			String header=BR.readLine();
+			header=header.replace("\"", "");
+			
 			String NextLine=BR.readLine();
 			String CurrentIMO="";
 			
@@ -81,10 +84,17 @@ public class HistoryFileSpliter {
 			    
 			    try {
 				
+				if (NextLine.indexOf("\\") != -1)
+				{
+				    NextLine=NextLine.replaceAll("\\\\", "\\\\\\\\");
+				}
+				
 				RowData = CSVP.parseLine(NextLine);
+				
 			    } catch (Exception e) {
 				// TODO Auto-generated catch block
-				System.out.println("Error in parsing:"+ NextLine+" exception:"+e.getMessage());
+				System.out.println("Error in parsing:"+ NextLine+" exception:");
+				e.printStackTrace();
 				NextLine=BR.readLine();
 				continue;
 			    }
