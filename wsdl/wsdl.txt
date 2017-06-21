@@ -1,0 +1,3 @@
+http://webservice.vesseltracker.com/webservices/HistoryOrderService?wsdl
+
+wsimport -keep  http://webservice.vesseltracker.com/webservices/HistoryOrderService?wsdl
