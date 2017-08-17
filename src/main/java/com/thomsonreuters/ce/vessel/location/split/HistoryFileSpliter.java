@@ -22,8 +22,8 @@ import au.com.bytecode.opencsv.CSVParser;
 
 public class HistoryFileSpliter {
 
-    private static String sourcefolder="D:\\mywork\\development\\VTdata_analysis\\20160324\\raw";
-    private static String destfolder="D:\\mywork\\development\\VTdata_analysis\\20160324\\split"
+    private static String sourcefolder="C:\\mywork\\vtrebuild\\20170810\\raw";
+    private static String destfolder="C:\\mywork\\vtrebuild\\20170810\\split"
     	+ "";
 
     public static void main(String[] args) {
