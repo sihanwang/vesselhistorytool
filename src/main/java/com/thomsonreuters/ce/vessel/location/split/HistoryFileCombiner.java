@@ -22,8 +22,8 @@ import au.com.bytecode.opencsv.CSVParser;
 
 public class HistoryFileCombiner {
 
-    private static String Source="C:\\mywork\\vtrebuild\\20170810\\split";
-    private static String dest="C:\\mywork\\vtrebuild\\20170810\\result";
+    private static String Source="C:\\mywork\\vtrebuild\\20170922\\split";
+    private static String dest="C:\\mywork\\vtrebuild\\20170922\\result";
   
 
     public static void main(String[] args) {
