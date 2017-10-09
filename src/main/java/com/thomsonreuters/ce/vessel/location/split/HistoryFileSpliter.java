@@ -22,8 +22,8 @@ import au.com.bytecode.opencsv.CSVParser;
 
 public class HistoryFileSpliter {
 
-    private static String sourcefolder="C:\\mywork\\vtrebuild\\20170922\\raw";
-    private static String destfolder="C:\\mywork\\vtrebuild\\20170922\\split"
+    private static String sourcefolder="/Users/jing.wang/mywork/vtrebuild/20171009/raw";
+    private static String destfolder="/Users/jing.wang/mywork/vtrebuild/20171009/split"
     	+ "";
 
     public static void main(String[] args) {
@@ -39,7 +39,7 @@ public class HistoryFileSpliter {
 
 		
 		String FileName=HistoryFile.getName();
-		String targetfolder=destfolder+"\\"+FileName;
+		String targetfolder=destfolder+"/"+FileName;
 		
 		File targetfile=new File(targetfolder);
 		
@@ -59,8 +59,7 @@ public class HistoryFileSpliter {
 		while(ZippedFiles.hasMoreElements())
 		{
 		    ZipEntry entry = (ZipEntry) ZippedFiles.nextElement();
-		    //if (entry.getName().equals("export.csv"))
-		    if (true)
+		    if (entry.getName().startsWith("export"))
 		    {			
 			
 			InputStream IS = ZippedFile.getInputStream(entry);

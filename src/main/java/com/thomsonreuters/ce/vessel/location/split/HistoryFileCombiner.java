@@ -22,8 +22,8 @@ import au.com.bytecode.opencsv.CSVParser;
 
 public class HistoryFileCombiner {
 
-    private static String Source="C:\\mywork\\vtrebuild\\20170922\\split";
-    private static String dest="C:\\mywork\\vtrebuild\\20170922\\result";
+    private static String Source="/Users/jing.wang/mywork/vtrebuild/20171009/split";
+    private static String dest="/Users/jing.wang/mywork/vtrebuild/20171009/result";
   
 
     public static void main(String[] args) {
@@ -38,7 +38,7 @@ public class HistoryFileCombiner {
 	{
 	    String FolderName=thispolygon.getName();
 
-	    File SFolder= new File(Source+"\\"+FolderName);
+	    File SFolder= new File(Source+"/"+FolderName);
 	    File[] FileList = SFolder.listFiles();
 
 	    SizeOrderedFileWrapper[] fileWrappers = new SizeOrderedFileWrapper[FileList.length];
@@ -51,13 +51,13 @@ public class HistoryFileCombiner {
 
 	    try {
 		
-		File tempfile=new File(Source+"\\"+FolderName,"export.csv");
+		File tempfile=new File(Source+"/"+FolderName,"export.csv");
 		if (tempfile.exists())
 		{
 		    tempfile.delete();
 		}
 		
-		BufferedWriter BW=new BufferedWriter(new FileWriter(new File(Source+"\\"+FolderName,"export.csv")));
+		BufferedWriter BW=new BufferedWriter(new FileWriter(new File(Source+"/"+FolderName,"export.csv")));
 		boolean WroteHeader=false;
 
 
@@ -128,7 +128,7 @@ public class HistoryFileCombiner {
 		BW.close();
 
 		//zip
-		File tempFile=new File(Source+"\\"+FolderName,"export.csv");
+		File tempFile=new File(Source+"/"+FolderName,"export.csv");
 
 		File zipfile=new File(dest,FolderName);
 
